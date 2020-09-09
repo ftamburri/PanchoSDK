@@ -1,0 +1,3 @@
+include ':panchoTestSDK'
+include ':app'
+rootProject.name = "SDK Tester"

@@ -1,0 +1,9 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="ar.com.fennoma.panchotestsdk">
+
+    <application
+        android:allowBackup="true">
+        <activity android:name=".activities.FirstActivity"/>
+    </application>
+
+</manifest>

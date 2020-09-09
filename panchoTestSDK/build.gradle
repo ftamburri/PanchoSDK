@@ -1,0 +1,71 @@
+apply plugin: 'com.android.library'
+apply plugin: 'com.github.dcendents.android-maven'
+apply plugin: 'com.jfrog.bintray'
+
+ext {
+    bintrayRepo = 'Maven' // Name of the Bintray repo you created
+    bintrayName = 'ar.com.fennoma.pancho.test.sdk:panchotestsdk' // Bintray package name
+
+    publishedGroupId = 'ar.com.fennoma.pancho.test.sdk' // Group ID of the SDK which will be added in implementation line of gradle
+    artifact = 'panchotestsdk' // Artifact ID of the SDK which will be added in implementation line of gradle
+    libraryVersion = '0.0.2' // Version of the library you created in Bintray
+
+    libraryName = 'PanchoTestSDK' // It is generally the module name
+    libraryDescription = 'Pruebita' // Small description of the library
+
+    siteUrl = 'https://github.com/mohitrajput987/android-utility'
+    gitUrl = 'https://github.com/mohitrajput987/android-utility.git'
+
+    developerId = 'ourtechnobytes'
+    developerName = 'Our Techno Bytes'
+    developerEmail = 'info@ourtechnobytes.com'
+
+    licenseName = 'The Apache Software License, Version 2.0'
+    licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+    allLicenses = ["Apache-2.0"]
+
+    //Bintray Credentials
+    Properties properties = new Properties()
+    properties.load(project.rootProject.file('local.properties').newDataInputStream())
+
+    bintrayUsername = properties.getProperty('BINTRAY_USERNAME')
+    bintrayUserOrg = properties.getProperty('BINTRAY_ORG')
+    bintrayApiKey = properties.getProperty('BINTRAY_API_KEY')
+}
+
+android {
+    compileSdkVersion 29
+
+    defaultConfig {
+        minSdkVersion 16
+        targetSdkVersion 29
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+tasks.withType(Javadoc).all {
+    enabled = false
+}
+
+dependencies {
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+    implementation 'androidx.appcompat:appcompat:1.2.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.1'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+
+}
+
+apply from: 'bintray.script'
