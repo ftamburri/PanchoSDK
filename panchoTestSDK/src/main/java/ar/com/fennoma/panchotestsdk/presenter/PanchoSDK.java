@@ -12,6 +12,8 @@ public class PanchoSDK {
     private Context context;
     private IPanchoSDKListener listener;
     private Integer backgroundColor;
+    private Integer textColor;
+    private Integer buttonBackgroundColor;
 
     public interface IPanchoSDKListener {
         void onFinishedSuccessfully();
@@ -23,6 +25,24 @@ public class PanchoSDK {
             instance = new PanchoSDK();
         }
         return instance;
+    }
+
+    public Integer getButtonBackgroundColor() {
+        return buttonBackgroundColor;
+    }
+
+    public PanchoSDK setButtonBackgroundColor(Integer buttonBackgroundColor) {
+        this.buttonBackgroundColor = buttonBackgroundColor;
+        return this;
+    }
+
+    public Integer getTextColor() {
+        return textColor;
+    }
+
+    public PanchoSDK setTextColor(Integer textColor) {
+        this.textColor = textColor;
+        return this;
     }
 
     public PanchoSDK setBackgroundColor(int color) {

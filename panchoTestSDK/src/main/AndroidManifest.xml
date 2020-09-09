@@ -4,6 +4,9 @@
     <application
         android:allowBackup="true">
         <activity android:name=".activities.FirstActivity"/>
+        <activity android:name=".activities.SecondActivity"/>
+        <activity android:name=".activities.ThirdActivity"/>
+        <activity android:name=".activities.FourthActivity"/>
     </application>
 
 </manifest>

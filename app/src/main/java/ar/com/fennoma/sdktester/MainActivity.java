@@ -21,6 +21,8 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 PanchoSDK.getInstance()
                         .setBackgroundColor(getResources().getColor(R.color.sdk_background))
+                        .setButtonBackgroundColor(getResources().getColor(android.R.color.holo_green_dark))
+                        .setTextColor(getResources().getColor(android.R.color.holo_red_dark))
                         .setContext(MainActivity.this)
                         .setListener(new PanchoSDK.IPanchoSDKListener() {
                             @Override
