@@ -2,7 +2,6 @@ package ar.com.fennoma.sdktester;
 
 import android.os.Bundle;
 import android.view.View;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -11,12 +10,22 @@ import ar.com.fennoma.panchotestsdk.presenter.PanchoSDK;
 
 public class MainActivity extends AppCompatActivity {
 
+    private View button;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        TextView text = findViewById(R.id.text);
-        text.setOnClickListener(new View.OnClickListener() {
+        findViews();
+        setViews();
+    }
+
+    private void setViews() {
+        setButton();
+    }
+
+    private void setButton() {
+        button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 PanchoSDK.getInstance()
@@ -38,6 +47,10 @@ public class MainActivity extends AppCompatActivity {
                         .start();
             }
         });
+    }
+
+    private void findViews() {
+        button = findViewById(R.id.button);
     }
 }
 
